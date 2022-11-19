@@ -4,6 +4,8 @@ import DataCom from './DataCom';
 
 const GetDataTest = () => {
   const [getData, setGetData] = useState([]);
+  const [dataOffset, setDataOffset] = useState(0);
+  const [dataLimit, setDataLimit] = useState(10);
 
   useEffect(() => {
     fetch('/data/dummy_data_for_test.json', {
@@ -15,38 +17,38 @@ const GetDataTest = () => {
       });
   }, []);
 
-  // console.log(getData);
-
   return (
     <GetWrapper>
-      {getData.map(
-        ({
-          uid,
-          country,
-          created_at,
-          lv,
-          items,
-          block_type,
-          pvp_rank,
-          reward_type,
-          last_stage,
-        }) => {
-          return (
-            <DataCom
-              key={uid}
-              uid={uid}
-              country={country}
-              created_at={created_at}
-              lv={lv}
-              items={items}
-              block_type={block_type}
-              pvp_rank={pvp_rank}
-              reward_type={reward_type}
-              last_stage={last_stage}
-            />
-          );
-        }
-      )}
+      {getData
+        .slice(0, 11)
+        .map(
+          ({
+            uid,
+            country,
+            created_at,
+            lv,
+            items,
+            block_type,
+            pvp_rank,
+            reward_type,
+            last_stage,
+          }) => {
+            return (
+              <DataCom
+                key={uid}
+                uid={uid}
+                country={country}
+                created_at={created_at}
+                lv={lv}
+                items={items}
+                block_type={block_type}
+                pvp_rank={pvp_rank}
+                reward_type={reward_type}
+                last_stage={last_stage}
+              />
+            );
+          }
+        )}
     </GetWrapper>
   );
 };

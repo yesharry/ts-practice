@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Vic from './pages/Vic';
+import { ThemeProvider } from 'styled-components';
+import theme from './styles/Theme';
+import Router from './pages/Router';
+import GlobalStyles from './styles/GlobalStyles';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <React.StrictMode>
-    <Vic />
-  </React.StrictMode>
+  <>
+    <GlobalStyles />
+    <ThemeProvider theme={theme}>
+      <Router />
+    </ThemeProvider>
+  </>
 );

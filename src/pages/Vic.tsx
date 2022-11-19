@@ -1,17 +1,18 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import CollapsibleTable from './components/CollapsibleTable/CollapsibleTable';
-import GetDataTest from './components/CollapsibleTable/test/GetDataTest';
 import PieChartTest from './components/PieChartTest/PieChartTest';
+import TableChart from './components/TableChart/TableChart';
+// import TableChartURL from './components/TableChart/TableChartURL';
 
 const Vic = () => {
   return (
     <Div>
       <LibraryTest>
         <PieChartTest />
-        <CollapsibleTable />
+        {/* <TableChartURL /> */}
+        <TableChart />
       </LibraryTest>
-      <GetDataTest />
     </Div>
   );
 };
