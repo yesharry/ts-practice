@@ -1,3 +1,13 @@
+export interface DummyTypes {
+  data: DummyDataTypes;
+}
+
+export interface DummyDataTypes {
+  success: boolean;
+  error: null;
+  result: PostDataTypes[];
+}
+
 export interface PostDataTypes {
   uid: string;
   country: string;

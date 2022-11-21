@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import TableData from './TableData';
-import { API } from '../../../config';
+import TableData from '../TableData';
+import { API } from '../../../../config';
 import { useSearchParams } from 'react-router-dom';
 
 const TableChartURL = () => {

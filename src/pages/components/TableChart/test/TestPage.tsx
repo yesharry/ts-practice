@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Pagination from './test/Pagenation';
-import TableData from './TableData';
-import { PostDataTypes } from './types/type';
+import TestData from './TestData';
+// import Pagination from './Pagination';
+import PNtest from './Pagenation';
 
-const TableChart = () => {
+const TestPage = () => {
   const [getData, setGetData] = useState([]);
 
-  // const [dataOffset, setDataOffset] = useState(0);
-  // const [dataLimit, setDataLimit] = useState(10);
-
-  // const [limit, setLimit] = useState<number>(10);
-  // const [page, setPage] = useState<number>(1);
-  // const offset = (page - 1) * limit;
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const offset = (page - 1) * limit;
+  const [blockNum, setBlockNum] = useState<number>(0);
 
   useEffect(() => {
     fetch(`/data/dummy_data_for_test.json?`, {
@@ -24,23 +22,8 @@ const TableChart = () => {
       });
   }, []);
 
-  // const fetchUserList = async () => {
-  //   const response = await fetch(
-  //     `/data/dummy_data_for_test.json?&offset=${dataOffset}?&limit=${dataLimit}`,
-  //     { method: 'GET' }
-  //   );
-  //   const dummy = await response.json();
-  //   setGetData(getData.concat(dummy.data.result));
-  // };
-
-  // const fetchMoreList = async () => {
-  //   await fetchUserList();
-  //   setDataOffset(dataOffset + 10);
-  //   setDataLimit(dataLimit + 9);
-  // };
-
   return (
-    <>
+    <Wrapper>
       <TableWrapper>
         <Table>
           <Thead>
@@ -51,7 +34,7 @@ const TableChart = () => {
             </Tr>
           </Thead>
           {getData
-            // .slice(offset, offset + limit)
+            .slice(offset, offset + limit)
             .map(
               ({
                 uid,
@@ -65,7 +48,7 @@ const TableChart = () => {
                 last_stage,
               }) => {
                 return (
-                  <TableData
+                  <TestData
                     key={uid}
                     uid={uid}
                     country={country}
@@ -82,18 +65,25 @@ const TableChart = () => {
             )}
         </Table>
       </TableWrapper>
-      {/* <PageWrapper>
-        <Pagination
+      <PageWrapper>
+        <PNtest
           total={getData.length}
+          offset={offset}
           limit={limit}
           page={page}
-          setGetData={setGetData}
+          setPage={setPage}
+          blockNum={blockNum}
+          setBlockNum={setBlockNum}
         />
       </PageWrapper>
-      강아지 MBTI ADMIN 참고하면 될듯.. 아마도오.. */}
-    </>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const TableWrapper = styled.div`
   padding: 1.5em;
@@ -154,4 +144,4 @@ const TABLE_TITLE = [
   },
 ];
 
-export default TableChart;
+export default TestPage;
