@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell } from 'recharts';
 import styled from 'styled-components';
 
@@ -40,15 +40,29 @@ const renderCustomizedLabel = ({
 };
 
 const PieChartTest = () => {
+  const [getData, setGetData] = useState();
+
+  useEffect(() => {
+    fetch(`/data/dummy_data_for_test.json?`, {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(dummy => {
+        setGetData(dummy.data.result);
+      });
+  }, []);
+
+  // console.log(getData);
+
   return (
     <PieChart width={400} height={400}>
       <Pie
         data={data}
-        cx={200}
-        cy={200}
+        cx={170}
+        cy={170}
         labelLine={false}
         label={renderCustomizedLabel}
-        outerRadius={80}
+        outerRadius={120}
         fill="#8884d8"
         dataKey="value"
       >

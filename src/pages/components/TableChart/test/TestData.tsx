@@ -26,8 +26,8 @@ const TestData = ({
   last_stage,
 }: DataProps) => {
   return (
-    <Tbody>
-      <Tr>
+    <Tbody className="fold-table">
+      <Tr className="view">
         <Td>{uid}</Td>
         <Td>{country}</Td>
         <Td>{lv}</Td>
@@ -35,15 +35,16 @@ const TestData = ({
         <Td>{reward_type}</Td>
         <Td>{created_at}</Td>
       </Tr>
-      <DropTr>
+      <DropTr className="fold">
         <DropTd colSpan={6}>
-          <DropBox />
+          <DropDiv className="fold-content">
+            <DropBox />
+          </DropDiv>
         </DropTd>
       </DropTr>
     </Tbody>
   );
 };
-
 const Tr = styled.tr``; // 행
 
 const Tbody = styled.tbody`
@@ -58,5 +59,7 @@ const Td = styled.td`
 const DropTr = styled.tr``;
 
 const DropTd = styled.td``;
+
+const DropDiv = styled.div``;
 
 export default TestData;

@@ -13,7 +13,7 @@ const TestPage = () => {
   const [blockNum, setBlockNum] = useState<number>(0);
 
   useEffect(() => {
-    fetch(`/data/dummy_data_for_test.json?`, {
+    fetch(`/data/dummy_data_for_test.json`, {
       method: 'GET',
     })
       .then(res => res.json())

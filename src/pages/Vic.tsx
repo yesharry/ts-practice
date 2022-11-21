@@ -1,21 +1,16 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import PieChartTest from './components/PieChartTest/PieChartTest';
-import StateChart from './components/TableChart/test/StateChart';
-import TableChart from './components/TableChart/TableChart';
+import GetData from './components/PieChartTest/test/GetData';
 import TestPage from './components/TableChart/test/TestPage';
-// import TableChartURL from './components/TableChart/TableChartURL';
 
 const Vic = () => {
   return (
     <Div>
       <LibraryTest>
         <PieChartTest />
-        {/* <TableChartURL /> */}
-        {/* <TableChart /> */}
-        {/* <StateChart /> */}
         <TestPage />
+        <GetData />
       </LibraryTest>
     </Div>
   );

@@ -7,13 +7,6 @@ import { PostDataTypes } from './types/type';
 const TableChart = () => {
   const [getData, setGetData] = useState([]);
 
-  // const [dataOffset, setDataOffset] = useState(0);
-  // const [dataLimit, setDataLimit] = useState(10);
-
-  // const [limit, setLimit] = useState<number>(10);
-  // const [page, setPage] = useState<number>(1);
-  // const offset = (page - 1) * limit;
-
   useEffect(() => {
     fetch(`/data/dummy_data_for_test.json?`, {
       method: 'GET',
@@ -24,74 +17,48 @@ const TableChart = () => {
       });
   }, []);
 
-  // const fetchUserList = async () => {
-  //   const response = await fetch(
-  //     `/data/dummy_data_for_test.json?&offset=${dataOffset}?&limit=${dataLimit}`,
-  //     { method: 'GET' }
-  //   );
-  //   const dummy = await response.json();
-  //   setGetData(getData.concat(dummy.data.result));
-  // };
-
-  // const fetchMoreList = async () => {
-  //   await fetchUserList();
-  //   setDataOffset(dataOffset + 10);
-  //   setDataLimit(dataLimit + 9);
-  // };
-
   return (
-    <>
-      <TableWrapper>
-        <Table>
-          <Thead>
-            <Tr>
-              {TABLE_TITLE.map(tableTitle => (
-                <Th key={tableTitle.id}>{tableTitle.title}</Th>
-              ))}
-            </Tr>
-          </Thead>
-          {getData
-            // .slice(offset, offset + limit)
-            .map(
-              ({
-                uid,
-                country,
-                created_at,
-                lv,
-                items,
-                block_type,
-                pvp_rank,
-                reward_type,
-                last_stage,
-              }) => {
-                return (
-                  <TableData
-                    key={uid}
-                    uid={uid}
-                    country={country}
-                    created_at={created_at}
-                    lv={lv}
-                    items={items}
-                    block_type={block_type}
-                    pvp_rank={pvp_rank}
-                    reward_type={reward_type}
-                    last_stage={last_stage}
-                  />
-                );
-              }
-            )}
-        </Table>
-      </TableWrapper>
-      {/* <PageWrapper>
-        <Pagination
-          total={getData.length}
-          limit={limit}
-          page={page}
-          setGetData={setGetData}
-        />
-      </PageWrapper>
-      강아지 MBTI ADMIN 참고하면 될듯.. 아마도오.. */}
-    </>
+    <TableWrapper>
+      <Table>
+        <Thead>
+          <Tr>
+            {TABLE_TITLE.map(tableTitle => (
+              <Th key={tableTitle.id}>{tableTitle.title}</Th>
+            ))}
+          </Tr>
+        </Thead>
+        {getData
+          // .slice(offset, offset + limit)
+          .map(
+            ({
+              uid,
+              country,
+              created_at,
+              lv,
+              items,
+              block_type,
+              pvp_rank,
+              reward_type,
+              last_stage,
+            }) => {
+              return (
+                <TableData
+                  key={uid}
+                  uid={uid}
+                  country={country}
+                  created_at={created_at}
+                  lv={lv}
+                  items={items}
+                  block_type={block_type}
+                  pvp_rank={pvp_rank}
+                  reward_type={reward_type}
+                  last_stage={last_stage}
+                />
+              );
+            }
+          )}
+      </Table>
+    </TableWrapper>
   );
 };
 
