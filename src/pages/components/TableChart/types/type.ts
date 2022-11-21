@@ -24,4 +24,6 @@ export interface ItemTypes {
   itemId: number;
   name: string;
   defence: number;
+  magic: number;
+  attack: number;
 }

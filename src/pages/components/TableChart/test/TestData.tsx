@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import DropBox from '../components/DropBox';
+import { ItemTypes } from '../types/type';
 
 interface DataProps {
   uid: string;
   country: string;
   created_at: string;
   lv: number;
-  items: Array<Object>;
+  items: ItemTypes[];
   block_type: boolean;
   pvp_rank: number;
   reward_type: string;
@@ -25,9 +26,15 @@ const TestData = ({
   reward_type,
   last_stage,
 }: DataProps) => {
+  const [open, setOpen] = useState(false);
+
+  const dropActive = () => {
+    setOpen(open => !open);
+  };
+
   return (
-    <Tbody className="fold-table">
-      <Tr className="view">
+    <Tbody>
+      <Tr onClick={() => dropActive()}>
         <Td>{uid}</Td>
         <Td>{country}</Td>
         <Td>{lv}</Td>
@@ -35,17 +42,23 @@ const TestData = ({
         <Td>{reward_type}</Td>
         <Td>{created_at}</Td>
       </Tr>
-      <DropTr className="fold">
+      <DropTr>
         <DropTd colSpan={6}>
-          <DropDiv className="fold-content">
-            <DropBox />
-          </DropDiv>
+          {open && <DropBox items={items} last_stage={last_stage} />}
         </DropTd>
       </DropTr>
     </Tbody>
   );
 };
-const Tr = styled.tr``; // 행
+const Tr = styled.tr`
+  height: 40px;
+  font-size: 15px;
+  cursor: pointer;
+  &:hover {
+    background-color: #928375;
+    color: white;
+  }
+`; // 행
 
 const Tbody = styled.tbody`
   height: 30px;
@@ -54,12 +67,11 @@ const Tbody = styled.tbody`
 const Td = styled.td`
   border: 1px solid #e5e5e5;
   text-align: center;
+  padding-top: 12px;
 `;
 
 const DropTr = styled.tr``;
 
 const DropTd = styled.td``;
-
-const DropDiv = styled.div``;
 
 export default TestData;

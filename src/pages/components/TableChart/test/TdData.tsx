@@ -19,9 +19,7 @@ const TdData = ({ data }: TdDataProps) => {
         <Td>{data.uid}</Td>
       </Tr>
       <DropTr>
-        <DropTd colSpan={6}>
-          <DropBox />
-        </DropTd>
+        <DropTd colSpan={6}>{/* <DropBox /> */}</DropTd>
       </DropTr>
     </>
   );

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import CollapsibleTable from './components/CollapsibleTable/CollapsibleTable';
 import PieChartTest from './components/PieChartTest/PieChartTest';
 import GetData from './components/PieChartTest/test/GetData';
 import TestPage from './components/TableChart/test/TestPage';
@@ -10,7 +11,7 @@ const Vic = () => {
       <LibraryTest>
         <PieChartTest />
         <TestPage />
-        <GetData />
+        {/* <GetData /> */}
       </LibraryTest>
     </Div>
   );

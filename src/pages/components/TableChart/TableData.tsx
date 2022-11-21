@@ -36,9 +36,7 @@ const TableData = ({
         <Td>{created_at}</Td>
       </Tr>
       <DropTr>
-        <DropTd colSpan={6}>
-          <DropBox />
-        </DropTd>
+        <DropTd colSpan={6}>{/* <DropBox /> */}</DropTd>
       </DropTr>
     </Tbody>
   );
