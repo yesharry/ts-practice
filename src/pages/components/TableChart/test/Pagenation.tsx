@@ -144,17 +144,17 @@ const PageLi = styled.li`
   width: 30px;
   margin-right: 10px;
   &.clicked {
+    background-color: #73685d;
     color: white;
-    background-color: ${props => props.theme.colors.gray};
   }
   &:hover {
     cursor: pointer;
     color: white;
-    background-color: ${props => props.theme.colors.gray};
+    background-color: #73685d;
   }
   &:focus::after {
     color: white;
-    background-color: ${props => props.theme.colors.gray};
+    background-color: #73685d;
   }
 `;
 

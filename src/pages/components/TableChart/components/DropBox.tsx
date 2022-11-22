@@ -11,38 +11,57 @@ const DropBox = ({ last_stage, items }: DropProps) => {
   return (
     <DropWrapper>
       <LastDiv>LAST STAGE : {last_stage}</LastDiv>
-      <ItemsTable>
-        <Thead>
-          <Tr>
-            <Th>ITEM Id</Th>
-            <Th>ITEM NAME</Th>
-            <Th>ITEM INFORMATION</Th>
-          </Tr>
-        </Thead>
-        {items.map((items, idx) => (
-          <Tbody key={idx}>
+      <ItemDiv>
+        <ItemsTable>
+          <Thead>
             <Tr>
-              <Td>{items.itemId}</Td>
-              <Td>{items.name}</Td>
-              <Td>
-                {items.defence ? 'DEFENCE' : items.attack ? 'ATTACK' : 'MAGIC'}
-                {' : '}
-                {items.defence || items.magic || items.attack}
-              </Td>
+              <Th>ITEM ID</Th>
+              <Th>ITEM NAME</Th>
+              <Th>ITEM INFORMATION</Th>
             </Tr>
-          </Tbody>
-        ))}
-      </ItemsTable>
+          </Thead>
+          {items.map((items, idx) => (
+            <Tbody key={idx}>
+              <Tr>
+                <Td>{items.itemId}</Td>
+                <Td>{items.name}</Td>
+                <Td>
+                  {items.defence
+                    ? 'DEFENCE'
+                    : items.attack
+                    ? 'ATTACK'
+                    : 'MAGIC'}
+                  {' : '}
+                  {items.defence || items.magic || items.attack}
+                </Td>
+              </Tr>
+            </Tbody>
+          ))}
+        </ItemsTable>
+      </ItemDiv>
     </DropWrapper>
   );
 };
 
-const DropWrapper = styled.div``;
+const DropWrapper = styled.div`
+  background-color: #d9c4b1;
+`;
 
-const LastDiv = styled.div``;
+const LastDiv = styled.div`
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 10px;
+  font-weight: bold;
+`;
+
+const ItemDiv = styled.div`
+  width: 100%;
+  padding-bottom: 20px;
+`;
 
 const ItemsTable = styled.table`
   width: 500px;
+  margin: 0 auto;
 `;
 
 const Tr = styled.tr``;

@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import CollapsibleTable from './components/CollapsibleTable/CollapsibleTable';
-import PieChartTest from './components/PieChartTest/PieChartTest';
 import GetData from './components/PieChartTest/test/GetData';
 import TestPage from './components/TableChart/test/TestPage';
 
@@ -9,9 +7,8 @@ const Vic = () => {
   return (
     <Div>
       <LibraryTest>
-        <PieChartTest />
+        <GetData />
         <TestPage />
-        {/* <GetData /> */}
       </LibraryTest>
     </Div>
   );

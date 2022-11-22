@@ -113,7 +113,7 @@ const Thead = styled.thead`
 
 const Th = styled.th`
   border: 1px solid white;
-  padding-top: 12px;
+  padding-top: 13px;
 `;
 
 const PageWrapper = styled.div``;
